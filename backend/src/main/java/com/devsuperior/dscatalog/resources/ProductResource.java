@@ -30,7 +30,6 @@ public class ProductResource {
 
 	@GetMapping
 	public ResponseEntity<Page<ProductDTO>> findAll(Pageable pageable) {
-
 				
 		Page<ProductDTO> list = service.findAllPaged(pageable);
 
