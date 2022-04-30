@@ -6,6 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +28,7 @@ public class User implements Serializable {
 	private String email;
 	private String password;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)//Forçar o carregamento também dos roles sempre que buscar os Users
 	@JoinTable(
 			name = "tb_user_role", 
 			joinColumns = @JoinColumn(name = "user_id"),
